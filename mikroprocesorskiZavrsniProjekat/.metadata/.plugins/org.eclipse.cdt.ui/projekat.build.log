@@ -1,0 +1,55 @@
+13:56:37 **** Incremental Build of configuration Debug for project projekat ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:27: warning: missing braces around initializer [-Wmissing-braces]
+  116 |   int matricaTaster[3][2]={1,2,3,4,5,6};
+      |                           ^
+      |                            {  }{  }{  }
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'LCD_init' [-Wimplicit-function-declaration]
+  119 |   LCD_init();
+      |   ^~~~~~~~
+../Core/Src/main.c:129:12: warning: implicit declaration of function 'paljenjeNasumicneDiode' [-Wimplicit-function-declaration]
+  129 |     int br=paljenjeNasumicneDiode();
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:154:4: warning: implicit declaration of function 'LCD' [-Wimplicit-function-declaration]
+  154 |    LCD(0x01, 0); /* cistimo ekran*/
+      |    ^~~
+../Core/Src/main.c:156:6: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  156 |      sprintf(buffer, "%d", poeni);
+      |      ^~~~~~~
+../Core/Src/main.c:156:6: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "string.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:182:6: warning: conflicting types for 'LCD_init'
+  182 | void LCD_init()
+      |      ^~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'LCD_init' was here
+  119 |   LCD_init();
+      |   ^~~~~~~~
+../Core/Src/main.c:191:6: warning: conflicting types for 'LCD'
+  191 | void LCD(uint8_t val_1, uint8_t cmd)
+      |      ^~~
+../Core/Src/main.c:154:4: note: previous implicit declaration of 'LCD' was here
+  154 |    LCD(0x01, 0); /* cistimo ekran*/
+      |    ^~~
+arm-none-eabi-gcc -o "projekat.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Luka\Desktop\Projekat za ispit\projekat\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projekat.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projekat.elf
+ 
+arm-none-eabi-size   projekat.elf 
+arm-none-eabi-objdump -h -S  projekat.elf  > "projekat.list"
+arm-none-eabi-objcopy  -O ihex  projekat.elf  "projekat.hex"
+   text	   data	    bss	    dec	    hex	filename
+  11772	    132	   1588	  13492	   34b4	projekat.elf
+Finished building: default.size.stdout
+ 
+Finished building: projekat.hex
+ 
+Finished building: projekat.list
+ 
+
+13:56:38 Build Finished. 0 errors, 8 warnings. (took 460ms)
+

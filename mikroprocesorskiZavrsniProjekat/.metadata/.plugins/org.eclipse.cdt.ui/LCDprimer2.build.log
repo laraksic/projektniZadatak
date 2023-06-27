@@ -1,0 +1,10 @@
+13:56:37 **** Incremental Build of configuration Debug for project LCDprimer2 ****
+make -j12 all 
+arm-none-eabi-size   LCDprimer2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6728	     20	   1620	   8368	   20b0	LCDprimer2.elf
+Finished building: default.size.stdout
+ 
+
+13:56:37 Build Finished. 0 errors, 0 warnings. (took 153ms)
+
